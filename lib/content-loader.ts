@@ -8,15 +8,13 @@ import fs from "fs"
 const DIRECTORY = path.join(process.cwd(), "content/posts")
 const EXTENSION = ".md"
 
-type Fs = typeof fs
-
-const listContentFiles = ({ fs }: { fs: Fs }) => {
+const listContentFiles = () => {
   const markdownFilenames = fs.readdirSync(DIRECTORY)
     .filter((filename) => path.parse(filename).ext === EXTENSION )
   return markdownFilenames
 }
 
-const readContentFile = async ({ fs, slug }: { fs: Fs; slug: string }) => {
+const readContentFile = async ({ slug }: { slug: string }) => {
   const raw = fs.readFileSync(path.join(DIRECTORY, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
   const { title, date } = matterResult.data
@@ -31,9 +29,9 @@ const readContentFile = async ({ fs, slug }: { fs: Fs; slug: string }) => {
   }
 }
 
-const readContentFiles = async ({ fs }: { fs: Fs }) => {
-  const promisses = listContentFiles({ fs })
-    .map((filename) => readContentFile({ fs: fs, slug: path.parse(filename).name }))
+const readContentFiles = async () => {
+  const promisses = listContentFiles()
+    .map((filename) => readContentFile({ slug: path.parse(filename).name }))
 
   const contents = await Promise.all(promisses)
 

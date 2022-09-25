@@ -1,4 +1,3 @@
-import fs from "fs"
 import Link from "next/link"
 import Layout from "../components/layout"
 import { readContentFiles } from '../lib/content-loader'
@@ -29,7 +28,7 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const posts = await readContentFiles({ fs })
+  const posts = await readContentFiles()
 
   return {
     props: {

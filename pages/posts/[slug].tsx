@@ -1,4 +1,3 @@
-import fs from "fs"
 import path from "path"
 import { listContentFiles, readContentFile } from '../../lib/content-loader'
 import Layout from "../../components/layout"
@@ -28,7 +27,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: {params: Params}) {
-  const content = await readContentFile({ fs, slug: params.slug })
+  const content = await readContentFile({ slug: params.slug })
 
   return {
     props: {
@@ -38,7 +37,7 @@ export async function getStaticProps({ params }: {params: Params}) {
 }
 
 export async function getStaticPaths() {
-  const paths = listContentFiles({ fs })
+  const paths = listContentFiles()
     .map((filename: string) => ({
       params: {
         slug: path.parse(filename).name
