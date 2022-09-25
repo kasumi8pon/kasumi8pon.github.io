@@ -19,16 +19,25 @@ const listContentFiles = ({ fs }: { fs: Fs }) => {
 const readContentFile = async ({ fs, slug }: { fs: Fs; slug: string }) => {
   const raw = fs.readFileSync(path.join(DIRECTORY, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
-  const { title, published: rawPublished } = matterResult.data
+  const { title, date } = matterResult.data
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
 
   return {
     title,
-    published: dayjs(rawPublished).format(),
+    date: dayjs(date).format(),
     content,
     slug
   }
 }
 
-export { listContentFiles, readContentFile }
+const readContentFiles = async ({ fs }: { fs: Fs }) => {
+  const promisses = listContentFiles({ fs })
+    .map((filename) => readContentFile({ fs: fs, slug: path.parse(filename).name }))
+
+  const contents = await Promise.all(promisses)
+
+  return contents
+}
+
+export { listContentFiles, readContentFile, readContentFiles }
