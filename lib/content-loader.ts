@@ -34,8 +34,9 @@ const readContentFiles = async () => {
     .map((filename) => readContentFile({ slug: path.parse(filename).name }))
 
   const contents = await Promise.all(promisses)
+  const sortedContents = contents.sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
 
-  return contents
+  return sortedContents
 }
 
 export { listContentFiles, readContentFile, readContentFiles }
