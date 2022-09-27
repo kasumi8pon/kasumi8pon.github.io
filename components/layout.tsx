@@ -17,7 +17,7 @@ const Layout = (props: Props) => {
         <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
 
         <header>
-          <h1>
+          <h1 className="text-3xl font-bold underline">
             <Link href="/">
               <a>{siteTitle}</a>
             </Link>
