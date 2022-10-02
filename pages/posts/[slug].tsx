@@ -1,6 +1,7 @@
 import path from "path"
 import { listContentFiles, readContentFile } from '../../lib/content-loader'
 import Layout from "../../components/layout"
+import dayjs from "dayjs"
 
 type Props = {
   title: string
@@ -10,13 +11,17 @@ type Props = {
 
 export default function Post(props: Props) {
   return (
-    <Layout title={props.title}>
+    <Layout>
       <div>
-        <span>
-          {props.date}
-        </span>
+        <h1>{props.title}</h1>
+        <div className="font-serif">
+          {dayjs(props.date).format('YYYY-MM-DD')}
+        </div>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: props.content }}>
+      <div
+        dangerouslySetInnerHTML={{ __html: props.content }}
+        className="pt-5 markdown"
+      >
       </div>
     </Layout>
   )

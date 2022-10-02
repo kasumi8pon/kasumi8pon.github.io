@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Layout from "../components/layout"
 import { readContentFiles } from '../lib/content-loader'
+import dayjs from "dayjs"
 
 type Post = {
   title: string
@@ -20,8 +21,21 @@ export default function Home(props: Props) {
     <Layout>
       {posts.map((post) => <div
         key={post.slug}
+        className="pb-2"
       >
-        <h2><Link href="/posts/[id]" as={`/posts/${post.slug}`}>{post.title}</Link></h2>
+        <Link href="/posts/[id]" as={`/posts/${post.slug}`}>
+          <a>
+            <div className="flex">
+              <div className="flex-none">
+                {dayjs(post.date).format('YYYY-MM-DD')}
+              </div>
+              <div className="flex-none w-3"></div>
+              <div className="flex-auto">
+                {post.title}
+              </div>
+            </div>
+          </a>
+        </Link>
       </div>)}
     </Layout>
   )
