@@ -1,5 +1,9 @@
 import path from "path"
-import { listContentFiles, readContentFile } from '../../lib/content-loader'
+import fs from "fs"
+import { remark } from "remark"
+import html from "remark-html"
+import matter from "gray-matter"
+import { readContentFiles } from '../../lib/content-loader'
 import Layout from "../../components/layout"
 import dayjs from "dayjs"
 
@@ -31,21 +35,30 @@ type Params = {
   slug: string
 }
 
+const DIRECTORY = path.join(process.cwd(), "content/posts")
+
 export async function getStaticProps({ params }: {params: Params}) {
-  const content = await readContentFile({ slug: params.slug })
+  const raw = fs.readFileSync(path.join(DIRECTORY, `${params.slug}.md`), 'utf8')
+  const matterResult = matter(raw)
+  const { title, date } = matterResult.data
+  const parsedContent = await remark().use(html).process(matterResult.content)
+  const content = parsedContent.toString()
 
   return {
     props: {
-      ...content
+      title,
+      date: dayjs(date).format(),
+      content,
+      slug: params.slug
     }
   }
 }
 
 export async function getStaticPaths() {
-  const paths = listContentFiles()
-    .map((filename: string) => ({
+  const paths = readContentFiles()
+    .map((post) => ({
       params: {
-        slug: path.parse(filename).name
+        slug: post.slug
       }
     }))
   return { paths, fallback: false }

@@ -8,6 +8,7 @@ type Post = {
   date: string
   content: string
   slug: string
+  published: boolean
 }
 
 type Props = {
@@ -42,7 +43,7 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const posts = await readContentFiles()
+  const posts = readContentFiles()
 
   return {
     props: {
