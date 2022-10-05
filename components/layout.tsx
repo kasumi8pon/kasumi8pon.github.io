@@ -9,7 +9,7 @@ type Props = {
 
 const Layout = (props: Props) => {
   const { title, children } = props
-  const siteTitle = "kasumi8pon blog"
+  const siteTitle = "kasumi8pon"
 
   return (
     <div className="h-full">
