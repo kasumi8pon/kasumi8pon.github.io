@@ -98,3 +98,9 @@ h1 {
 .markdown code {
   @apply text-red-50;
 }
+
+.markdown a {
+  @apply text-orange-700;
+  @apply hover:text-red-300;
+  @apply underline;
+}
