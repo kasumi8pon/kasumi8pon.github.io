@@ -1,7 +1,7 @@
 ---
-title: ブログを始めます
-date: 2022/09/25
-published: false
+title: ブログをつくった
+date: 2022/10/05
+published: true
 ---
 
-よろしくね
+テストです。
