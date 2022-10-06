@@ -15,7 +15,7 @@ type Props = {
 
 export default function Post(props: Props) {
   return (
-    <Layout>
+    <Layout title={props.title}>
       <div>
         <h1>{props.title}</h1>
         <div className="font-serif">
