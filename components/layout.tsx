@@ -23,6 +23,10 @@ const Layout = (props: Props) => {
     <div className="h-full">
       <Head>
         <title>{ogTitle}</title>
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content={ogTitle} />
+        <meta property="twitter:image" content={ogImg} />
+        <meta property="twitter:creator" content="@kasumi8pon" />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={ogDescription} />
         <meta property="og:img" content={ogImg} />
