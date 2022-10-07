@@ -1,6 +1,7 @@
 ---
 title: シャワーを浴びながら、何かを聞く
 date: 2022/10/06
+description: シャワーを浴びるときに骨伝導イヤホンでラジオや Podcast を聞くといい感じ
 published: true
 ---
 

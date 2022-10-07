@@ -1,20 +1,32 @@
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { ReactNode } from "react"
 
 type Props = {
-  title?: string
+  pageTitle?: string
+  description?: string
   children?: ReactNode
 }
 
 const Layout = (props: Props) => {
-  const { title, children } = props
+  const { pageTitle, children, description } = props
+  const siteUrl = "https://kasumi8pon.net"
   const siteTitle = "kasumi8pon"
+  const ogTitle = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle
+  const ogDescription = description || 'kasumi8pon\'s website'
+  const ogUrl = `${siteUrl}${useRouter().asPath}`
+  const ogImg = `${siteUrl}/images/kasumi8pon.jpg`
+
 
   return (
     <div className="h-full">
       <Head>
-        <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+        <title>{ogTitle}</title>
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:img" content={ogImg} />
+        <meta property="og:url" content={ogUrl} />
       </Head>
 
       <header className="flex justify-center items-center h-28 bg-red-100">

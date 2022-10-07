@@ -11,11 +11,15 @@ type Props = {
   title: string
   date: string
   content: string
+  description: string
 }
 
 export default function Post(props: Props) {
   return (
-    <Layout title={props.title}>
+    <Layout
+      pageTitle={props.title}
+      description={props.description}
+    >
       <div>
         <h1>{props.title}</h1>
         <div className="font-serif">
@@ -40,7 +44,7 @@ const DIRECTORY = path.join(process.cwd(), "content/posts")
 export async function getStaticProps({ params }: {params: Params}) {
   const raw = fs.readFileSync(path.join(DIRECTORY, `${params.slug}.md`), 'utf8')
   const matterResult = matter(raw)
-  const { title, date } = matterResult.data
+  const { title, date, description } = matterResult.data
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
 
@@ -48,6 +52,7 @@ export async function getStaticProps({ params }: {params: Params}) {
     props: {
       title,
       date: dayjs(date).format(),
+      description,
       content,
       slug: params.slug
     }
