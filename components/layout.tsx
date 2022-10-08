@@ -43,7 +43,7 @@ const Layout = (props: Props) => {
 
       <main className="min-h-[calc(100%-14.25rem)]">
         <div className="flex justify-center pt-10 pb-10">
-          <div className="max-w-xl w-full">
+          <div className="max-w-xl w-full pl-3 pr-4">
             <div>
               {children}
             </div>
