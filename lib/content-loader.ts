@@ -6,12 +6,6 @@ import fs from "fs"
 const DIRECTORY = path.join(process.cwd(), "content/posts")
 const EXTENSION = ".md"
 
-const listContentFiles = () => {
-  const markdownFilenames = fs.readdirSync(DIRECTORY)
-    .filter((filename) => path.parse(filename).ext === EXTENSION)
-  return markdownFilenames
-}
-
 const readContentFiles = () => {
   const posts = fs.readdirSync(DIRECTORY)
     .filter((filename) => path.parse(filename).ext === EXTENSION)
@@ -28,4 +22,4 @@ const readContentFiles = () => {
   return posts
 }
 
-export { listContentFiles, readContentFiles }
+export { readContentFiles }
