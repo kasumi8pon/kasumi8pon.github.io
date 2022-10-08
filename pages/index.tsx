@@ -43,7 +43,8 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const posts = readContentFiles()
+  const onlyPublished = process.env.NODE_ENV === 'production'
+  const posts = readContentFiles(onlyPublished)
 
   return {
     props: {

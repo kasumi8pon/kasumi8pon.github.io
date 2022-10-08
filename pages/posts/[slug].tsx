@@ -11,7 +11,7 @@ type Props = {
   title: string
   date: string
   content: string
-  description: string
+  description?: string
 }
 
 export default function Post(props: Props) {
@@ -44,15 +44,14 @@ const DIRECTORY = path.join(process.cwd(), "content/posts")
 export async function getStaticProps({ params }: {params: Params}) {
   const raw = fs.readFileSync(path.join(DIRECTORY, `${params.slug}.md`), 'utf8')
   const matterResult = matter(raw)
-  const { title, date, description } = matterResult.data
+  const metadata = matterResult.data as Metadata
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
 
+
   return {
     props: {
-      title,
-      date: dayjs(date).format(),
-      description,
+      ...metadata,
       content,
       slug: params.slug
     }
@@ -60,7 +59,8 @@ export async function getStaticProps({ params }: {params: Params}) {
 }
 
 export async function getStaticPaths() {
-  const paths = readContentFiles()
+  const onlyPublished = process.env.NODE_ENV === 'production'
+  const paths = readContentFiles(onlyPublished)
     .map((post) => ({
       params: {
         slug: post.slug

@@ -1,6 +1,6 @@
 type Metadata = {
   title: string
   date: string
-  content: string
+  description?: string
   published: boolean
 }
