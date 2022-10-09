@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new-post": "deno run --allow-write bin/create_post.ts"
   },
   "dependencies": {
     "@types/gtag.js": "^0.0.12",
