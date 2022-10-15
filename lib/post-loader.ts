@@ -6,7 +6,7 @@ import fs from "fs"
 const DIRECTORY = path.join(process.cwd(), "content/posts")
 const EXTENSION = ".md"
 
-const readContentFiles = (onlyPublished: boolean = true) => {
+const readPosts = (onlyPublished: boolean = true) => {
   const posts = fs.readdirSync(DIRECTORY)
     .filter((filename) => path.parse(filename).ext === EXTENSION)
     .map((filename) => {
@@ -22,4 +22,4 @@ const readContentFiles = (onlyPublished: boolean = true) => {
   return posts
 }
 
-export { readContentFiles }
+export { readPosts }

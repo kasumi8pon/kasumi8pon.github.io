@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Layout from "../components/layout"
-import { readContentFiles } from '../lib/content-loader'
+import { readPosts } from '../lib/post-loader'
 import dayjs from "dayjs"
 
 type Post = {
@@ -44,7 +44,7 @@ export default function Home(props: Props) {
 
 export async function getStaticProps() {
   const onlyPublished = process.env.NODE_ENV === 'production'
-  const posts = readContentFiles(onlyPublished)
+  const posts = readPosts(onlyPublished)
 
   return {
     props: {

@@ -3,7 +3,7 @@ import fs from "fs"
 import { remark } from "remark"
 import html from "remark-html"
 import matter from "gray-matter"
-import { readContentFiles } from '../../lib/content-loader'
+import { readPosts } from '../../lib/post-loader'
 import Layout from "../../components/layout"
 import dayjs from "dayjs"
 
@@ -60,7 +60,7 @@ export async function getStaticProps({ params }: {params: Params}) {
 
 export async function getStaticPaths() {
   const onlyPublished = process.env.NODE_ENV === 'production'
-  const paths = readContentFiles(onlyPublished)
+  const paths = readPosts(onlyPublished)
     .map((post) => ({
       params: {
         slug: post.slug
