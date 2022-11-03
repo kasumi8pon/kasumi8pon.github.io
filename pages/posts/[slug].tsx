@@ -45,7 +45,7 @@ export async function getStaticProps({ params }: {params: Params}) {
   const raw = fs.readFileSync(path.join(DIRECTORY, `${params.slug}.md`), 'utf8')
   const matterResult = matter(raw)
   const metadata = matterResult.data as Metadata
-  const parsedContent = await remark().use(html).process(matterResult.content)
+  const parsedContent = await remark().use(html, {sanitize: false}).process(matterResult.content)
   const content = parsedContent.toString()
 
 
