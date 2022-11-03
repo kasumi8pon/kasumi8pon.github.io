@@ -12,6 +12,7 @@ type Props = {
   date: string
   content: string
   description?: string
+  image?: string
 }
 
 export default function Post(props: Props) {
@@ -19,6 +20,7 @@ export default function Post(props: Props) {
     <Layout
       pageTitle={props.title}
       description={props.description}
+      image={props.image}
     >
       <div>
         <h1>{props.title}</h1>

@@ -5,6 +5,7 @@ const frontMatter =`---
 title:
 date: "${date}"
 description:
+image:
 published: false
 ---
 `

@@ -6,18 +6,18 @@ import { ReactNode } from "react"
 type Props = {
   pageTitle?: string
   description?: string
+  image?: string
   children?: ReactNode
 }
 
 const Layout = (props: Props) => {
-  const { pageTitle, children, description } = props
+  const { pageTitle, children, image, description } = props
   const siteUrl = "https://kasumi8pon.net"
   const siteTitle = "kasumi8pon"
   const ogTitle = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle
   const ogDescription = description || 'kasumi8pon\'s website'
   const ogUrl = `${siteUrl}${useRouter().asPath}`
-  const ogImg = `${siteUrl}/images/kasumi8pon.jpg`
-
+  const ogImg = image || '/images/kasumi8pon.jpg'
 
   return (
     <div className="h-full">
@@ -25,11 +25,11 @@ const Layout = (props: Props) => {
         <title>{ogTitle}</title>
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:title" content={ogTitle} />
-        <meta property="twitter:image" content={ogImg} />
+        <meta property="twitter:image" content={`${siteUrl}${ogImg}`} />
         <meta property="twitter:creator" content="@kasumi8pon" />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={ogDescription} />
-        <meta property="og:img" content={ogImg} />
+        <meta property="og:img" content={`${siteUrl}${ogImg}`} />
         <meta property="og:url" content={ogUrl} />
       </Head>
 
