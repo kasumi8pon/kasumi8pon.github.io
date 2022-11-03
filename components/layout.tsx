@@ -34,7 +34,7 @@ const Layout = (props: Props) => {
       </Head>
 
       <header className="flex justify-center items-center h-28 bg-red-100">
-        <div className="max-w-xl w-full pl-3 pr-3 text-3xl font-bold text-center">
+        <div className="max-w-2xl w-full pl-3 pr-3 text-3xl font-bold text-center">
           <Link href="/">
             <a>{siteTitle}</a>
           </Link>
@@ -43,7 +43,7 @@ const Layout = (props: Props) => {
 
       <main className="min-h-[calc(100%-14.25rem)]">
         <div className="flex justify-center pt-10 pb-10">
-          <div className="max-w-xl w-full pl-3 pr-3">
+          <div className="max-w-2xl w-full pl-3 pr-3">
             <div>
               {children}
             </div>
@@ -52,7 +52,7 @@ const Layout = (props: Props) => {
       </main>
 
       <footer className="flex justify-center items-center h-28 bg-red-100">
-        <div className="flex justify-end max-w-xl w-full pl-3 pr-3">
+        <div className="flex justify-end max-w-2xl w-full pl-3 pr-3">
           <Link href="/about">
             <img
               src="https://kasumi8pon.net/images/kasumi8pon.jpg"
