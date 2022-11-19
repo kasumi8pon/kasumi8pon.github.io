@@ -22,7 +22,7 @@ export default function About(props: Props) {
       </div>
       <div className="pt-5">
         <img
-          src="https://kasumi8pon.net/images/kasumi8pon.jpg"
+          src="/images/kasumi8pon.jpg"
           alt="kasumi8pon's icon, Ponta in front of seibu dome"
           className="w-52 rounded-full"
         />
