@@ -27,7 +27,7 @@ export default function Home(props: Props) {
         <Link href="/posts/[id]" as={`/posts/${post.slug}`}>
           <a>
             <div className="flex">
-              <div className="flex-none">
+              <div className="flex-none w-24">
                 {dayjs(post.date).format('YYYY-MM-DD')}
               </div>
               <div className="flex-none w-3"></div>
