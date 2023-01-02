@@ -31,6 +31,12 @@ const Layout = (props: Props) => {
         <meta property="og:description" content={ogDescription} />
         <meta property="og:img" content={`${siteUrl}${ogImg}`} />
         <meta property="og:url" content={ogUrl} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="kasumi8pon"
+          href={`${siteUrl}/feed.xml`}
+        />
       </Head>
 
       <header className="flex justify-center items-center h-28 bg-red-100">

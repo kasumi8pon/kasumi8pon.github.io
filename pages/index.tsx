@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Layout from "../components/layout"
 import { readPosts } from '../lib/post-loader'
+import { generateRSSFeed } from "../lib/generate-feeds"
 import dayjs from "dayjs"
 
 type Post = {
@@ -43,6 +44,8 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
+  await generateRSSFeed()
+
   const onlyPublished = process.env.NODE_ENV === 'production'
   const posts = readPosts(onlyPublished)
 
