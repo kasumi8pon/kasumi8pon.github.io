@@ -4,7 +4,7 @@
         <title>kasumi8pon</title>
         <link>https://kasumi8pon.net/</link>
         <description>kasumi8pon's blog</description>
-        <lastBuildDate>Mon, 02 Jan 2023 04:47:46 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 03 Jan 2023 03:25:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -16,8 +16,8 @@
         <copyright>All rights reserved 2022, kasumi8pon</copyright>
         <item>
             <title><![CDATA[麻雀AI「NAGA」]]></title>
-            <link>https://kasumi8pon.net/mahjong-ai-naga</link>
-            <guid>https://kasumi8pon.net/mahjong-ai-naga</guid>
+            <link>https://kasumi8pon.net/posts/mahjong-ai-naga</link>
+            <guid>https://kasumi8pon.net/posts/mahjong-ai-naga</guid>
             <pubDate>Sat, 19 Nov 2022 08:08:26 GMT</pubDate>
             <description><![CDATA[麻雀上手くなりたいので、麻雀AIのNAGAを使い始めた。]]></description>
             <content:encoded><![CDATA[
@@ -41,8 +41,8 @@ NAGA は牌譜を分析して、NAGA ならこうやって打つというのを�
         </item>
         <item>
             <title><![CDATA[日本シリーズ2022を見に行ってきた]]></title>
-            <link>https://kasumi8pon.net/nippon-series-2022</link>
-            <guid>https://kasumi8pon.net/nippon-series-2022</guid>
+            <link>https://kasumi8pon.net/posts/nippon-series-2022</link>
+            <guid>https://kasumi8pon.net/posts/nippon-series-2022</guid>
             <pubDate>Thu, 03 Nov 2022 14:58:35 GMT</pubDate>
             <description><![CDATA[今年も日本シリーズを観戦してきました。オリックス・バファローズ日本一だ！！！]]></description>
             <content:encoded><![CDATA[
@@ -79,8 +79,8 @@ NAGA は牌譜を分析して、NAGA ならこうやって打つというのを�
         </item>
         <item>
             <title><![CDATA[夢のなかの物語]]></title>
-            <link>https://kasumi8pon.net/stories-in-dreams</link>
-            <guid>https://kasumi8pon.net/stories-in-dreams</guid>
+            <link>https://kasumi8pon.net/posts/stories-in-dreams</link>
+            <guid>https://kasumi8pon.net/posts/stories-in-dreams</guid>
             <pubDate>Sat, 15 Oct 2022 15:17:45 GMT</pubDate>
             <description><![CDATA[よく見る夢がある。]]></description>
             <content:encoded><![CDATA[
@@ -98,8 +98,8 @@ NAGA は牌譜を分析して、NAGA ならこうやって打つというのを�
         </item>
         <item>
             <title><![CDATA[イライラしないスプラトゥーン3]]></title>
-            <link>https://kasumi8pon.net/less-frastrating-splatoon3</link>
-            <guid>https://kasumi8pon.net/less-frastrating-splatoon3</guid>
+            <link>https://kasumi8pon.net/posts/less-frastrating-splatoon3</link>
+            <guid>https://kasumi8pon.net/posts/less-frastrating-splatoon3</guid>
             <pubDate>Sat, 08 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[スプラトゥーン、3になってイライラ度がかなり減って、楽しく遊んでいる。]]></description>
             <content:encoded><![CDATA[
@@ -117,8 +117,8 @@ LTではごぐたんがスプラトゥーン3の話をしていた。わたし�
         </item>
         <item>
             <title><![CDATA[シャワーを浴びながら、何かを聞く]]></title>
-            <link>https://kasumi8pon.net/listen-to-something-while-taking-shower</link>
-            <guid>https://kasumi8pon.net/listen-to-something-while-taking-shower</guid>
+            <link>https://kasumi8pon.net/posts/listen-to-something-while-taking-shower</link>
+            <guid>https://kasumi8pon.net/posts/listen-to-something-while-taking-shower</guid>
             <pubDate>Thu, 06 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[シャワーを浴びるときに骨伝導イヤホンでラジオや Podcast を聞くといい感じ]]></description>
             <content:encoded><![CDATA[
@@ -135,8 +135,8 @@ LTではごぐたんがスプラトゥーン3の話をしていた。わたし�
         </item>
         <item>
             <title><![CDATA[ブログをつくった]]></title>
-            <link>https://kasumi8pon.net/hello-blog</link>
-            <guid>https://kasumi8pon.net/hello-blog</guid>
+            <link>https://kasumi8pon.net/posts/hello-blog</link>
+            <guid>https://kasumi8pon.net/posts/hello-blog</guid>
             <pubDate>Wed, 05 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[日記を書きたくてブログをつくった。自分の好きなようにできるスペースというのはとてもよいし、自然とコードを書きたくなってとても楽しい。]]></description>
             <content:encoded><![CDATA[
