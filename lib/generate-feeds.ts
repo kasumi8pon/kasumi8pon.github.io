@@ -4,8 +4,6 @@ import dayjs from 'dayjs'
 import { readPosts, readPost } from './post-loader'
 import path from "path"
 import matter from "gray-matter"
-import { remark } from "remark"
-import html from "remark-html"
 
 const generateRSSFeed = async () => {
   const feed = new Feed({
@@ -29,20 +27,22 @@ const generateRSSFeed = async () => {
 
   const DIRECTORY = path.join(process.cwd(), "content/posts")
 
-  posts.forEach(async post => {
+  await Promise.all(posts.map(async post => {
     const raw = fs.readFileSync(path.join(DIRECTORY, `${post.slug}.md`), 'utf8')
     const matterResult = matter(raw)
     const metadata = matterResult.data as Metadata
+    const loadedPost = await readPost(post.slug)
 
     feed.addItem({
       title: metadata.title,
       id: `https://kasumi8pon.net/posts/${post.slug}`,
       link: `https://kasumi8pon.net/posts/${post.slug}`,
       description: metadata.description,
-      content: matterResult.content,
+      content: loadedPost.content,
       date: dayjs(post.date).toDate()
     });
-  });
+  }));
+
   fs.writeFileSync(`./public/feed.xml`, feed.rss2(), 'utf8')
 }
 
