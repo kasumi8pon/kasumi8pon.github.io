@@ -4,7 +4,7 @@
         <title>kasumi8pon</title>
         <link>https://kasumi8pon.net/</link>
         <description>kasumi8pon's blog</description>
-        <lastBuildDate>Sun, 02 Jul 2023 11:52:39 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Jul 2023 14:49:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -14,6 +14,58 @@
             <link>https://kasumi8pon.net/</link>
         </image>
         <copyright>All rights reserved 2022, kasumi8pon</copyright>
+        <item>
+            <title><![CDATA[割り算をして商を切り上げた値がほしい]]></title>
+            <link>https://kasumi8pon.net/posts/ceiling-of-division</link>
+            <guid>https://kasumi8pon.net/posts/ceiling-of-division</guid>
+            <pubDate>Wed, 05 Jul 2023 14:27:10 GMT</pubDate>
+            <description><![CDATA[割る数 -1 を割られる数に足す。]]></description>
+            <content:encoded><![CDATA[<p>Rust で<a href="https://atcoder.jp/contests/abc302/tasks/abc302_a">ABC302 の A 問題</a>を解いていて、割り算をして商を切り上げた値がほしくなった。</p>
+<p>Ruby なら以下のように書いていた。</p>
+<pre><code class="language-ruby">a = 3
+b = 2
+
+(a / b.to_f).ceil
+</code></pre>
+<p>Rust で同じロジックで書こうとするとこうなる。</p>
+<pre><code class="language-Rust">let a: i32 = 3;
+let b: i32 = 2;
+
+(a as f64 / b as f64).ceil() as i32;
+</code></pre>
+<p>型変換が多くて大変。</p>
+<p>剰余があるときに商を 1 足すことはできる。</p>
+<pre><code class="language-rust">let (div, rem) = (a / b, a % b);
+let ceil;
+if rem == 0 { ceil = div } else { ceil = div + 1 }
+</code></pre>
+<p>でも、あんまり <code>if</code> 書きたくないなあ。</p>
+<p>他の人の提出を見ていたら、こんなふうに書いてる人が多かった。</p>
+<pre><code class="language-rust">(a + b - 1)/ b;
+</code></pre>
+<p>割る数 - 1 を割られる数に足している。</p>
+<p>もともと割り切れる場合は、割る数 - 1 を足しても、商の数は変わらない。</p>
+<p>余りがある場合は、余りは 1 以上なので、割る数 - 1 を足すと商が 1 大きくなって切り上げの値になる。</p>
+<p>なるほど、言われてみればたしかに！</p>
+<p>このあたりは、num-integer を使うことでも書ける。
+<code>div_rem</code> があって、</p>
+<pre><code class="language-rust">let (div, rem) = (a / b, a % b);
+</code></pre>
+<p>は</p>
+<pre><code class="language-rust">let (div, rem) = a.div_rem(&#x26;b);
+</code></pre>
+<p>と書ける。
+<a href="https://docs.rs/num-integer/latest/num_integer/trait.Integer.html#tymethod.div_rem">https://docs.rs/num-integer/latest/num_integer/trait.Integer.html#tymethod.div_rem</a></p>
+<p>また、num-integer には <code>divceil</code> というメソッドがある。</p>
+<pre><code class="language-rust">integer::div_ceil(a, b);
+</code></pre>
+<p><a href="https://docs.rs/num-integer/latest/num_integer/fn.div_ceil.html">https://docs.rs/num-integer/latest/num_integer/fn.div_ceil.html</a>
+これがまさに欲しかったもの！</p>
+<p>でも、競プロやる上ではメソッドを知らないこともあるので、こういう Tips を引き出しに入れておいてもいいなと思った。他の言語でも使えるしね。</p>
+<p>ちなみに <code>divmod</code> の気持ちで Rust で余りの変数に <code>mod</code> としようとしたところ、予約語だということを学んだ。
+<a href="https://doc.rust-jp.rs/book-ja/appendix-01-keywords.html">https://doc.rust-jp.rs/book-ja/appendix-01-keywords.html</a></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[2023年3月の月報]]></title>
             <link>https://kasumi8pon.net/posts/march-2023-monthly-report</link>
