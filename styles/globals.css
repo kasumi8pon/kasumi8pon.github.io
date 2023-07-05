@@ -98,8 +98,12 @@ h1 {
   @apply bg-stone-800;
 }
 
-.markdown code {
+.markdown pre code {
   @apply text-red-50;
+}
+
+.markdown code {
+  @apply text-orange-700;
 }
 
 .markdown a {
