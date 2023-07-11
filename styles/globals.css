@@ -30,7 +30,7 @@ h1 {
 }
 
 .markdown h2 {
-  @apply mt-4;
+  @apply mt-8;
   @apply mb-4;
   @apply text-xl;
   @apply font-bold;
